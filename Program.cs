@@ -6,7 +6,7 @@ namespace Clasa_Angajat
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            SimpleQueue<Angajat> listaAngajati = new SimpleQueue<Angajat>();
         }
     }
 }
