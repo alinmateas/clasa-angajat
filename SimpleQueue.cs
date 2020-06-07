@@ -9,7 +9,7 @@ namespace Clasa_Angajat
 
         public SimpleQueue()
         {
-            data = new T[10];
+            data = new T[0];
             int count = 0;
         }
 
@@ -25,7 +25,7 @@ namespace Clasa_Angajat
         {
             if (count == data.Length)
             {
-                Array.Resize(ref data, data.Length * 2);
+                Array.Resize(ref data, data.Length + 1);
                 data[count] = elem;
                 count++;
             }
@@ -45,6 +45,11 @@ namespace Clasa_Angajat
         public void Sort<T>() where T:IAngajat
         {
             Array.Sort(data);
+        }
+
+        public void SortByName<T>() where T:IAngajat
+        {
+            Array.Sort(data,new AngajatComparer());
         }
 
         public T[] RetrieveAll()

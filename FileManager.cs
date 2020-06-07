@@ -45,11 +45,11 @@ namespace Clasa_Angajat
             return listaAngajati;
         }
 
-        public static void OutputBySeniority(SimpleQueue<Angajat> listaAngajati)
+        public static void Output(SimpleQueue<Angajat> listaAngajati, string path)
         {
             string[] lines = GetAngajatiInLines(listaAngajati);
 
-            System.IO.File.WriteAllLines(@"C:\Users\ALIN\source\repos\Clasa-Angajat\outputBySeniority.txt", lines);
+            System.IO.File.WriteAllLines(path, lines);
         }
 
         private static string[] GetAngajatiInLines(SimpleQueue<Angajat> listaAngajati)
@@ -63,7 +63,7 @@ namespace Clasa_Angajat
             Angajat[] angajati = listaAngajati.RetrieveAll();
             for (int i = 0; i < angajati.Length; i++)
             {
-                lines[i].Append(angajati[i].Nume + " " + angajati[i].Prenume + " " + GetLuna(angajati[i].Vechime) + " luni " + GetAn(angajati[i].Vechime) + " ani");
+                lines[i].Append(angajati[i].Nume + " " + angajati[i].Prenume + "  |   " + GetLuna(angajati[i].Vechime) + " Luni " + "si " + GetAn(angajati[i].Vechime) + " Ani" );
             }
 
             string[] linesString = new string[listaAngajati.Count];

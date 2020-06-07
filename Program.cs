@@ -14,9 +14,10 @@ namespace Clasa_Angajat
             {
                 listaAngajati.Add(angajat);
             }
-
+            listaAngajati.SortByName<Angajat>(); // metoda sorteaza in functie de nume
+            FileManager.Output(listaAngajati, @"C:\Users\ALIN\source\repos\Clasa-Angajat\outputByName.txt");
             listaAngajati.Sort<Angajat>(); // metoda sorteaza in functie de vechime (masurata in luni)
-            FileManager.OutputBySeniority(listaAngajati);
+            FileManager.Output(listaAngajati, @"C:\Users\ALIN\source\repos\Clasa-Angajat\outputBySeniority.txt");
         }
     }
 

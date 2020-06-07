@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace Clasa_Angajat
 {
@@ -31,9 +32,9 @@ namespace Clasa_Angajat
             Angajat other = (Angajat)obj;
 
             if (this.GetVechime() > other.GetVechime())
-                return 1;
-            else if(this.GetVechime() < other.GetVechime())
                 return -1;
+            else if(this.GetVechime() < other.GetVechime())
+                return 1;
             
             return 0;
         }
