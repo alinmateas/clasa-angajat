@@ -46,5 +46,18 @@ namespace Clasa_Angajat
         {
             Array.Sort(data);
         }
+
+        public T[] RetrieveAll()
+        {
+            T[] newArray = new T[count];
+            int contorNewArray = 0;
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (data[i] != null)
+                    newArray[contorNewArray++] = data[i]; // verificare si clonare pentru evitarea elementelor null
+            }
+
+            return newArray;
+        }
     }
 }

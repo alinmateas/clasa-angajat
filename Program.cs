@@ -16,6 +16,7 @@ namespace Clasa_Angajat
             }
 
             listaAngajati.Sort<Angajat>(); // metoda sorteaza in functie de vechime (masurata in luni)
+            FileManager.OutputBySeniority(listaAngajati);
         }
     }
 

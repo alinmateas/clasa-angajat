@@ -44,5 +44,45 @@ namespace Clasa_Angajat
 
             return listaAngajati;
         }
+
+        public static void OutputBySeniority(SimpleQueue<Angajat> listaAngajati)
+        {
+            string[] lines = GetAngajatiInLines(listaAngajati);
+
+            System.IO.File.WriteAllLines(@"C:\Users\ALIN\source\repos\Clasa-Angajat\outputBySeniority.txt", lines);
+        }
+
+        private static string[] GetAngajatiInLines(SimpleQueue<Angajat> listaAngajati)
+        {
+            StringBuilder[] lines = new StringBuilder[listaAngajati.Count];
+            for (int i = 0; i < lines.Length; i++)
+            {
+                lines[i] = new StringBuilder();
+            }
+
+            Angajat[] angajati = listaAngajati.RetrieveAll();
+            for (int i = 0; i < angajati.Length; i++)
+            {
+                lines[i].Append(angajati[i].Nume + " " + angajati[i].Prenume + " " + GetLuna(angajati[i].Vechime) + " luni " + GetAn(angajati[i].Vechime) + " ani");
+            }
+
+            string[] linesString = new string[listaAngajati.Count];
+            for (int i = 0; i < linesString.Length; i++)
+            {
+                linesString[i] = lines[i].ToString();
+            }
+
+            return linesString;
+        }
+
+        private static string GetAn(int vechime)
+        {
+            return (vechime / 12).ToString();
+        }
+
+        private static string GetLuna(int vechime)
+        {
+            return (vechime % 12).ToString();
+        }
     }
 }
